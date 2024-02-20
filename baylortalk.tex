@@ -1,0 +1,712 @@
+\documentclass{beamer}
+
+
+
+%\usepackage{beamerthemesplit}
+\usetheme{Boadilla}
+%\usetheme{default}
+%\useinnertheme{rounded}
+
+%\useoutertheme{shadow}
+\usecolortheme{rose}
+%\usefonttheme{serif}
+\setbeamertemplate{navigation symbols}{}
+\usetheme{Madrid}
+
+\usepackage{amssymb,amsmath,amscd,amsfonts,amsthm,dsfont,color,graphicx}
+\usepackage{amscd}
+%\usepackage[numbers]{natbib}
+% \usepackage[french]{babel}
+%\usepackage[active]{srcltx}
+
+
+\def\qd{\,{\mathchar'26\mkern-12mu d}}
+
+% \date[]{}
+
+ \newcommand\makebeamertitle{\frame{\maketitle}}%
+
+ \AtBeginDocument{
+   \let\origtableofcontents=\tableofcontents
+   \def\tableofcontents{\@ifnextchar[{\origtableofcontents}{\gobbletableofcontents}}
+   \def\gobbletableofcontents#1{\origtableofcontents}
+ }
+\numberwithin{equation}{section}
+  \theoremstyle{plain}
+  \newtheorem*{thm*}{\protect\theoremname}
+  \theoremstyle{plain}
+  \newtheorem*{cor*}{\protect\corollaryname}
+ \theoremstyle{definition}
+ \newtheorem*{defn*}{\protect\definitionname}
+ \theoremstyle{plain}
+\newtheorem*{lem*}{\protect\lemmaname}
+  \theoremstyle{plain}
+  \newtheorem*{rem*}{\protect\remarkname}
+   \theoremstyle{definition}
+ \newtheorem*{prop*}{\protect\propositionname}
+
+\usetheme{Madrid}
+
+\makeatother
+
+  \providecommand{\corollaryname}{Corollary}
+  \providecommand{\definitionname}{Definitioninition}
+  \providecommand{\theoremname}{Theorem}
+   \providecommand{\lemmaname}{Lemma}
+   \providecommand{\remarkname}{Remark}
+   \providecommand{\propositionname}{Proposition}
+   
+   
+\newcommand{\Rl}{\mathbb{R}}
+\newcommand{\Cplx}{\mathbb{C}}
+\newcommand{\Itgr}{\mathbb{Z}}
+\newcommand{\Ntrl}{\mathbb{N}}
+\newcommand{\Circ}{\mathbb{T}}
+\newcommand{\Sb}{\mathbb{S}}
+\newcommand{\Disc}{\mathbb{D}}
+\newcommand{\Aff}{\mathbb{A}}
+
+% The Caligraphic alphabet
+\newcommand{\Ac}{\mathcal{A}}
+\newcommand{\Bc}{\mathcal{B}}
+\newcommand{\Cc}{\mathcal{C}}
+\newcommand{\Dc}{\mathcal{D}}
+\newcommand{\Ec}{\mathcal{E}}
+\newcommand{\Fc}{\mathcal{F}}
+\newcommand{\Gc}{\mathcal{G}}
+\newcommand{\Hc}{\mathcal{H}}
+\newcommand{\Ic}{\mathcal{I}}
+\newcommand{\Jc}{\mathcal{J}}
+\newcommand{\Kc}{\mathcal{K}}
+\newcommand{\Lc}{\mathcal{L}}
+\newcommand{\Mv}{\mathcal{M}}
+\newcommand{\Nv}{\mathcal{N}}
+\newcommand{\Oc}{\mathcal{O}}
+\newcommand{\Pc}{\mathcal{P}}
+\newcommand{\Qc}{\mathcal{Q}}
+\newcommand{\Rc}{\mathcal{R}}
+\newcommand{\Sc}{\mathcal{S}}
+\newcommand{\Tc}{\mathcal{T}}
+\newcommand{\Uc}{\mathcal{U}}
+\newcommand{\Vc}{\mathcal{V}}
+\newcommand{\Wc}{\mathcal{W}}
+\newcommand{\Xc}{\mathcal{X}}
+\newcommand{\Yc}{\mathcal{Y}}
+\newcommand{\Zc}{\mathcal{Z}}
+
+
+\newcommand{\Sp}{\mathrm{Sp}}
+\newcommand{\tr}{\mathrm{tr}}
+\newcommand{\Op}{\mathrm{Op}}
+\newcommand{\sym}{\mathrm{sym}}
+\newcommand{\Vol}{\mathrm{Vol}}
+\newcommand{\Tr}{\mathrm{Tr}}
+\newcommand{\dist}{\mathrm{dist}}
+\newcommand{\sgn}{\operatorname{sgn}}
+\newcommand{\diag}{\mathrm{diag}}
+\newcommand{\id}{\mathrm{id}}
+\newcommand{\Poly}{\mathrm{Poly}}
+
+\newcommand{\spec}{\mathrm{Spec}}
+\newcommand{\abs}{\mathrm{abs}}
+
+\newcommand{\CV}{\mathrm{CV}}
+\newcommand{\PCV}{\mathrm{PCV}}
+
+
+% Used for highlighting. To remove all highlighting just make the command blank
+\newcommand{\hl}{\color{red}}
+
+
+
+\newcommand{\dom}{\mathrm{dom}}
+\newcommand{\Bl}{\mathbb{B}^4}
+\newcommand{\supp}{\mathrm{supp}}
+\newcommand{\BS}{\mathfrak{BS}}
+\newcommand{\dyad}{\mathrm{dyad}}
+\newcommand{\Qs}{\mathscr{Q}}
+\newcommand{\Av}{\mathrm{Av}}
+\newcommand{\loc}{\mathrm{loc}}
+% DOI transformer
+\newcommand{\Ti}{\mathcal{T}}
+\newcommand{\sa}{\mathrm{sa}}
+
+\newcommand{\mf}{\mathfrak{m}}
+
+
+\newcommand{\Str}{\operatorname{Str}}
+   
+\begin{document}
+
+\title[Lipschitz estimates for $p<1$]{Lipschitz estimates in quasi-Banach Schatten ideals}
+
+
+\author[E. McDonald]{Edward McDonald (Penn State University)}
+
+
+\institute[]{\tiny{Baylor University, Waco.} }
+
+
+
+\makebeamertitle
+
+
+\begin{frame}{Introduction}
+This talk is mostly about the paper
+\begin{center}
+M., Sukochev, Lipschitz estimates in quasi-Banach Schatten ideals.
+\emph{Math. Ann.} 383 (2022), no.1--2, 571--619.
+\end{center}
+\end{frame}
+
+\begin{frame}{Plan for this talk}
+    \begin{enumerate}
+        \item{} Operator Lipschitz functions: some basic concepts and history.
+        \item{} Some very light background on Schatten ideals: the problem with $0<p<1.$
+        \item{} Schur multipliers in $0<p<1.$
+        \item{} Besov spaces and wavelets
+        \item{} Future directions
+    \end{enumerate}
+\end{frame}
+
+\begin{frame}{Operator Lipschitz functions}
+    Let $H$ be a (complex and separable) Hilbert space, and denote
+    the operator norm by $\|\cdot\|_\infty$. A function $f:\Rl\to \Cplx$
+    is said to be \emph{operator Lipschitz} if there exists a constant $C_f$ such that
+    \begin{equation*}
+        \|f(A)-f(B)\|_\infty \leq C_f\|A-B\|_\infty,\quad A,B\in \Bc_{\sa}(H)
+    \end{equation*}
+    \begin{block}{Question (from Krein)}
+        Is every Lipschitz function operator Lipschitz?
+        \pause
+        That is, does $|f(t)-f(s)|\lesssim |t-s|$ imply that $\|f(A)-f(B)\|_{\infty} \lesssim \|A-B\|_{\infty}?$
+    \end{block}
+\end{frame}
+
+
+\begin{frame}{Operator Lipschitz functions}
+    \begin{block}{Answer}
+        No.\\\pause
+        Farforovskaya (1968): There exist Lipschitz functions that are not operator Lipschitz\\\pause
+        Kato (1973): The absolute value function $f(t) = |t|$ is not operator Lipschitz\\\pause
+        Johnson \& Williams (1975): An operator Lipschitz function is differentiable.
+    \end{block}
+\end{frame}
+
+\begin{frame}{Finite-dimensional case}
+    If $H$ is $N$-dimensional, then
+    \[
+        \|f(A)-f(B)\|_{\infty} \leq C_{\mathrm{abs}}\log(1+N)\|f\|_{\mathrm{Lip}}\|A-B\|_{\infty}
+    \]
+    where $C_{\mathrm{abs}}$ is an absolute constant. This is sharp in the order of growth as $N\to\infty.$ I do not know if a sharp estimate for $C_{\mathrm{abs}}$ is known.
+\end{frame}
+
+
+\begin{frame}{Operator Lipschitz functions}
+    It is easy to check that sufficiently good functions are operator Lipschitz.\\
+    Let's check the function $f(x) = e^{i\xi x}$ for $\xi\in \Rl.$ We have
+    \begin{equation*}
+        e^{i\xi A}-e^{i\xi B} = i\xi\int_{0}^1 e^{i\xi (1-\theta)A}(A-B)e^{i\xi \theta B}\,d\theta.
+    \end{equation*}
+    The integral converges in the Bochner sense. The triangle inequality implies
+    $$
+        \|e^{i\xi A}-e^{i\xi B}\|_{\infty} \leq |\xi|\|A-B\|_{\infty}.
+    $$
+    \pause
+    By Fourier inversion,
+    \begin{equation*}
+        \|f(A)-f(B)\|_{\infty} \leq \|A-B\|_\infty\cdot 2\pi \|\widehat{\partial f}\|_1.
+    \end{equation*}
+    \pause
+    By Cauchy-Schwarz, $\|\widehat{\partial f}\|_1 \leq \|f'\|_2+\|f''\|_2.$ This is a ``good enough" sufficient condition for most purposes.
+\end{frame}
+
+\begin{frame}{Peller's theorem}
+    The previous computation was based on Fourier inversion of $f$ and a description of $e^{i\xi A}-e^{i\xi B}$ as an integral (Duhamel's integral).
+    \pause
+    Using a more subtle description of $e^{i\xi A}-e^{i\xi B}$, and handling the Littlewood-Paley components of $f$
+    individually, V. V. Peller has proved the following:
+    \begin{theorem}[Peller (1990)]
+        If $f$ is Lipschitz and belongs to the homogeneous Besov class $\dot{B}^1_{\infty,1}(\Rl)$ then $f$ is operator Lipschitz.
+    \end{theorem}
+    \pause
+    In other words, if $f$ is Lipschitz and
+    \begin{equation*}
+        \int_0^\infty \sup_{t\in \Rl} \frac{|f(t-h)-2f(t)+f(t+h)|}{h^2} \,dh < \infty
+    \end{equation*}
+    then $f$ is operator Lipschitz. 
+    \pause
+    For example, if $f',f'' \in L_{\infty}(\Rl)$ then $f$ is operator Lipschitz.
+\end{frame}
+
+\begin{frame}{Peller's operator Bernstein inequality}
+    The classical Bernstein inequality states that if $f \in L_{\infty}(\Rl)$ has Fourier transform supported in the interval $[-\sigma,\sigma],$ then
+    \[
+        \|f\|_{\mathrm{Lip}} \leq C\sigma \|f\|_{\infty}.
+    \]\pause
+    Peller's theorem is a consequence of his \emph{operator Bernstein inequality}.
+    \begin{theorem}[Peller (1990)]
+        If $f \in L_{\infty}(\Rl)$ has Fourier transform supported in the interval $[-\sigma,\sigma],$ then
+        \[
+            \|f\|_{\mathrm{O-Lip}} \leq C\sigma\|f\|_\infty.
+        \]
+    \end{theorem}
+    Here $\|f\|_{\mathrm{O-Lip}}$ is the operator Lipschitz seminorm, i.e.
+    \[
+        \|f\|_{\mathrm{O-Lip}} := \sup_{A=A^*,B=B^*\in \Bc(H)} \frac{\|f(A)-f(B)\|_{\infty}}{\|A-B\|_{\infty}}.
+    \]
+\end{frame}
+
+\begin{frame}{Schatten ideals}
+    If $T$ is a compact operator on $H$, the singular value sequence of $T$ is defined as
+    $$
+        \mu(k,T) := \inf\{\|T-R\|_{\infty}\;:\;\mathrm{rank}(R)\leq k\},\quad k\geq 0.
+    $$
+    (Equivalently, $\mu(T) = \{\mu(k,T)\}_{k=0}^\infty$ is the sequence of eigenvalues of the absolute value $|T|$ arranged in non-increasing order with multiplicities.)\\
+    \pause
+    Note that $\|T\|_\infty = \mu(0,T) = \|\mu(T)\|_{\ell_\infty}.$
+    \pause
+    For $1\leq p < \infty$, the Schatten $\Lc_p$-norm of a compact operator $T$ is
+    $$
+        \|T\|_p := \|\mu(T)\|_{\ell_p} = \left(\sum_{k=0}^\infty \mu(k,T)^p\right)^{\frac1p}.
+    $$
+    Equivalently, $\|T\|_p = \Tr(|T|^p)^{1/p}.$
+    It is not obvious, but this is a norm (i.e. $\|T+S\|_p\leq \|T\|_p+\|S\|_p.$)
+\end{frame}
+
+\begin{frame}{$\Lc_p$-operator Lipschitz functions}
+    A function $f$ on $\Rl$ is said to be $\Lc_p$-operator Lipschitz if there exists a constant $C_f>0$ such that
+    $$
+        \|f(A)-f(B)\|_p \leq C_f\|A-B\|_p,\quad A,B \in \Bc_{\sa}(H).
+    $$
+    By a duality argument, $\Lc_1$-operator Lipschitz is the same thing as operator Lipschitz.\pause
+    
+    What about $1 < p < \infty$?\pause
+    \begin{theorem}[Potapov and Sukochev (2010)]
+        For $1 < p < \infty$, all Lipschitz functions are $\Lc_p$-operator Lipschitz.
+    \end{theorem}   
+    \pause
+    For $p=2$ this is almost trivial and has been known for approx.~110 years. For $p\neq 2$, this requires some very deep
+    harmonic analysis. \pause
+    There are now essentially four proofs of Potapov-Sukochev. The most recent is due to
+    Conde-Alonso, Gonz\'alez-P\'erez, Parcet and Tablate and uses operator-valued harmonic analysis.
+\end{frame}
+
+\begin{frame}{What about $0 < p < 1$?}
+    For $0 < p < 1$, we can still define
+    $$
+        \|T\|_p := \|\mu(T)\|_{\ell_p} = \Tr(|T|^p)^{\frac1p}.
+    $$
+    This is not a norm, merely a quasi-norm. There is no triangle inequality, merely a quasi-triangle inequality
+    $$
+        \|T+S\|_p \leq 2^{\frac1p-1}(\|T\|_p+\|S\|_p).
+    $$
+    \pause
+    Nonetheless, we have
+    \[
+        \|T+S\|_p^p \leq \|T\|_p^p+\|S\|_p^p.
+    \]
+\end{frame}
+
+
+\begin{frame}{Geometry in $\Lc_p.$}
+    The unit ball $B = \{T\;:\; \|T\|_p\leq 1\}$ in $\Lc_p$ is not convex.
+
+    I.e., if $\xi_1,\ldots,\xi_n\in B$ then it might happen that
+    \[
+        \theta_1\xi_1+\cdots+\theta_n\xi_n\notin B,\quad |\theta_1|+\cdots+|\theta_n|\leq 1.
+    \]
+    For this reason the theory of integration $\Lc_p$-valued functions is not straightforward. We could have continuous functions $f \in C([0,1],\Lc_p)$
+    whose integral is not in $\Lc_p.$\\
+    \pause
+    Instead, $B$ is only closed under $p$-convex combinations, i.e.
+    \[
+        \theta_1\xi_1+\cdots+\theta_n \xi_n \in B,\quad |\theta_1|^p+\cdots+|\theta_n|^p \leq 1.
+    \]
+\end{frame}
+
+
+\begin{frame}{$\Lc_p$-Lipschitz functions for $0 < p < 1.$}
+    Which functions are Lipschitz in $\Lc_p$ when $0 < p < 1$? \\
+    \pause
+    At least some functions are, for example $f(t) = (t+\lambda)^{-1}$, $\lambda \in \Cplx\setminus \Rl.$\\
+    \pause
+    What about $f(t) = \exp(it\xi)$ for $\xi\in \Rl$?
+\end{frame}
+
+\begin{frame}{Schur multipliers}
+    The usual method to prove $\Lc_p$-estimates in $0<p<1$ is the same as for $p\geq 1,$ to use Schur multipliers.
+
+    If $A = \{A_{j,k}\}_{j,k}$ and $B = \{B_{j,k}\}_{j,k}$ are matrices of the same size, then $A\circ B := \{A_{j,k}B_{j,k}\}_{j,k}.$
+
+    \begin{definition}
+        Let $m = \{m_{j,k}\}_{j,k=1}^n$ be an $n\times n$ matrix. Define
+        \[
+            \|m\|_{\mf_p} := \sup_{\|B\|_{p}\leq 1} \|m\circ B\|_p.
+        \]
+        In general, let $m:\Rl^2\to \Cplx$ be bounded and define
+        \[
+            \|m\|_{\mf_p} := \sup_{x_1,\ldots,x_n,y_1,\ldots,y_n\in \Rl} \|\{m(x_j,y_k)\}_{j,k=1}^n\|_{\mf_p}.
+        \]
+    \end{definition}
+%     We have some obvious properties for $0<p\leq 1:$
+%     \begin{itemize}
+%         \item{} $\|m_1+m_2\|_{\mf_p}^p \leq \|m_1\|_{\mf_p}^p+\|m_2\|_{\mf_p}^p.$
+%         \item{} If $m_1$ is a principal submatrix of $m_2,$ then $\|m_1\|_{\mf_p} \leq \|m_2\|_{\mf_p}.$
+%     \end{itemize}
+    We could also consider the ``cb" version. This does not make much difference.
+\end{frame}
+
+\begin{frame}{Schur multipliers and operator-Lipschitz functions}
+    A folk result:
+    \begin{theorem}[Hadamard(?), Schur(?), L\"owner(?), Daletskii-Krein(?)]
+        Let $1\leq p\leq \infty,$ and let $f$ be a measurable function on $\Rl.$ Define
+        \[
+            f^{[1]}(\lambda,\mu) = \begin{cases}
+                                        \frac{f(\lambda)-f(\mu)}{\lambda-\mu},\quad \lambda \neq \mu\\
+                                        f'(\lambda),\quad \lambda=\mu.
+                                   \end{cases}
+        \]
+        Then $f$ is $\Lc_p$-Lipschitz if and only if $f^{[1]}$ is a bounded Schur multiplier.
+    \end{theorem}
+    \pause
+    If $f$ is not differentiable then $f'(\lambda)$ does not make sense everywhere, but this is no big deal. Bounded diagonal matrices are Schur multipliers in $\Lc_p$
+    for any $1\leq p\leq \infty$ so we can make $f^{[1]}(\lambda,\lambda)$ any bounded function of $\lambda$ without changing the result.
+\end{frame}
+
+
+
+
+\begin{frame}{Schur multipliers in $\Lc_p$}
+    One noteworthy difference between $p=1$ and $p<1$ is the following example:
+    \begin{example}
+        Let $I_n = \{\delta_{j,k}\}_{j,k=0}^{n-1}$ be the $n\times n$ identity matrix. Then
+        \[
+            \|I_n\|_{\mf_p} = n^{\frac1p-1}.
+        \]
+        To see this, compute $I_n\circ (\xi\otimes \xi)$ where $\xi = (1,\ldots,1).$
+    \end{example}
+    \pause
+    What this means is that restriction to the diagonal
+    \[
+        \{A_{j,k}\}_{j,k\geq 0} \mapsto \{A_{j,j}\delta_{j,k}\}_{j,k=0}^\infty
+    \]
+    is not bounded in $\Lc_p$ for any $0<p<1$!
+\end{frame}
+
+
+
+\begin{frame}{Schur multipliers and operator-Lipschitz functions in $\Lc_p$ for $0<p<1.$}
+    \begin{theorem}
+        Let $0< p\leq \infty.$ and let $f$ be a measurable function on $\Rl.$ Then $f$ is $\Lc_p$-Lipschitz if and only if
+        \[
+            \sup_{\{\lambda_j\},\{\mu_j\}} \|\{f^{[1]}(\lambda_j,\mu_k)\}_{j,k}\|_{\mf_p} < \infty
+        \]
+        where the supremum is over all \emph{disjoint} sequences $\{\lambda_j\}_{j}$ and $\{\mu_k\}_k.$
+    \end{theorem}
+    Since we only consider disjoint sequences, the diagonal does not enter the picture.
+\end{frame}
+
+
+\begin{frame}{An example}
+    Consider the function
+    \[
+        f(x) = \sin(x)
+    \]
+    and $\mu_j=\lambda_j=2\pi j.$ Then
+    \[
+        f^{[1]}(\lambda_j,\mu_k) = \delta_{j,k}.
+    \]
+    But this is not a Schur multiplier of $\Lc_p$! The same reasoning applies to any periodic function $f$ with $f'(\lambda)\neq 0$ for some $\lambda.$
+    \pause
+    This argument is obviously flawed, we are supposed to consider \emph{disjoint} sequences.
+\end{frame}
+
+\begin{frame}{A corrected example}
+    We can fix the previous (wrong) argument by shifting one of the sequences by $\varepsilon>0.$ Let $f$ be a $1$-periodic function. Consider the sequences
+    \[
+        \lambda_j = j+\varepsilon, \mu_k = k,\quad j,k\geq 0.
+    \]
+    Then
+    \[
+        f^{[1]}(\lambda_j,\mu_k) = \frac{f(j+\varepsilon)-f(k)}{j-k+\varepsilon} = (f(\varepsilon)-f(0))\frac{1}{j-k+\varepsilon},\quad j,k\geq 0.
+    \]
+    If $f(\varepsilon)\neq f(0),$ then we need to consider the matrix
+    \[
+        \{(j-k+\varepsilon)^{-1}\}_{j,k\geq 0}.
+    \]
+    This matrix is not diagonal, but a straightforward modification of the argument for $\{\delta_{j,k}\}_{j,k\geq 0}$ shows that it is not a Schur multiplier of $\Lc_p$ for any $0<p<1.$
+    \pause
+    Aleksandrov and Peller have characterised Schur multipliers of $\Lc_p$ of the Herz-Toeplitz form $m(j-k),$ so we could also use their result.
+\end{frame}
+
+
+
+\begin{frame}{Periodic functions are not $\Lc_p$-Lipschitz for $0 < p < 1$.}
+    Summarising the preceding reasoning:
+    \begin{lemma}[M. and Sukochev (2022)]
+        Let $0 < p < 1$, and let $f$ be a periodic function on $\Rl$. Then $f$ is $\Lc_p$-Lipschitz
+        if and only if it is constant.
+    \end{lemma}
+    What does this imply?\pause
+    \begin{itemize}
+        \item{} Even $C^\infty$ functions with all derivatives bounded may not be $\Lc_p$-Lipschitz;\\
+        \item{} In particular $f(t) = \exp(it\xi)$, $\xi\neq 0$ is not $\Lc_p$-Lipschitz for any $0 < p < 1.$ This means that methods based on a Fourier decomposition
+        are unlikely to work.
+    \end{itemize}
+\end{frame}
+%
+% \begin{frame}{Fourier multipliers}
+%     An analogous issue is Fourier multipliers in $L_p(\Circ)$ for $0<p<1.$
+%     \begin{theorem}
+%         Let $m \in \ell_{\infty}(\Itgr)$ and $0<p<1.$ The Fourier multiplier
+%         \[
+%             T_m:L_2(\Circ)\to L_2(\Circ),\quad T_m(\exp(i\theta n)) = m(n)\exp(i\theta n),\quad n\in \Itgr
+%         \]
+%         is bounded on $L_p(\Circ)$ if and only if $m$ has the form
+%         \[
+%             m(n) = \sum_{j=0}^\infty c_j \exp(in\zeta_j),\quad n\in \Itgr
+%         \]
+%         where $\sum_{j} |c_j|^p < \infty.$
+%     \end{theorem}
+%     In other words, the only $L_p(\Circ)$ multipliers for $0<p<1$ are shift operators and $p$-convex combinations of shifts.
+% \end{frame}
+%
+% \begin{frame}{Strategies to get $\Lc_p$-operator Lipschitz estimates}
+%     In the $\Lc_{\infty}$ case, we started with a class of functions $\{\exp(i\xi x)\}_{\xi\in \Rl}$ for which Lipschitz estimates are easy, and derived a more general class by taking convex combinations.
+%
+%     If we could find some set $\{\psi_j\}$ of functions which we know are $\Lc_p$-Lipschitz, then we could conclude that functions of the form
+%     \[
+%         \sum_j c_j\psi_j
+%     \]
+%     are also $\Lc_p$-operator Lipschitz.
+% \end{frame}
+%
+% \begin{frame}{Strategies to get $\Lc_p$-operator Lipschitz estimates}
+%     We know that if $f_\lambda(t) = (t+\lambda)^{-1},$ where $\lambda\in \Cplx\setminus \Rl,$ then
+%     \[
+%         \|f_{\lambda}\|_{\Lc_p-\mathrm{Lip}} \leq |\Im(\lambda)|^{-2}.
+%     \]
+%     Essentially every smooth function on $\Rl$ belongs to the closed convex hull of $\{f_\lambda\}_{\Im(\lambda)\neq 0}.$\\
+%     \pause
+%     I tried for a long time to characterise functions $f$ having a decomposition like
+%     \[
+%         f(t) = \sum_{j=0}^\infty c_j|\Im(\lambda_j)|^2f_{\lambda_j}(t)
+%     \]
+%     where $\sum_{j=0}^\infty |c_j|^p < \infty,$ but with no success.
+% \end{frame}
+
+\begin{frame}{An idea}
+    Consider the matrix
+    \begin{equation}\label{model_schur}
+        \left\{\frac{c_j-c_k}{j-k+\varepsilon}\right\}_{j,k\geq 0}
+    \end{equation}
+    where $c_j$ is a scalar sequence. This is approximately a model for $f^{[1]}(j+\varepsilon,k)$ where $f$ is a function of the form
+    \[
+        f(x) = \sum_{k\in \Itgr} c_k\psi(x-k)
+    \]
+    where $\psi$ is some bump function.
+    \begin{lemma}
+        If $\sum_{j} |c_j|^{\frac{p}{1-p}}<\infty$ then \eqref{model_schur} is a Schur multiplier of $\Lc_p.$
+    \end{lemma}
+    \pause
+    Why is it $\frac{p}{1-p}$? This is because of the H\"older inequality
+    \[
+        \left(\sum_{j} |a_jb_j|^p\right)^{\frac1p} \leq \left(\sum_{j} |a_j|^{\frac{p}{1-p}}\right)^{\frac{1-p}{p}}\left(\sum_{j} |b_j|\right)
+    \]
+\end{frame}
+
+\begin{frame}{Sums of shifted bump functions}
+    With considerably more effort, it is possible to prove the following:
+    \begin{theorem}
+        Let $\psi \in C^k_c(\Rl),$ where $k>\frac{2}{p}-1.$ If $\{c_k\}_{k\in \Itgr}$ is some scalar sequence, and
+        \[
+            f(x) = \sum_{k\in \Itgr} c_k\psi(x-k)
+        \]
+        then
+        \[
+            \|f^{[1]}\|_{\mf_p} \lesssim \|\{c_k\}_{k\in \Itgr}\|_{\ell_{\frac{p}{1-p}}}.
+        \]
+    \end{theorem}
+    What kind of functions can we build out of functions like this?\pause
+
+    In fact, basically all of them.
+\end{frame}
+
+\begin{frame}{Wavelet methods}
+    What is a good way of approximating a general function from compactly supported $C^k$-functions?\pause
+    \begin{theorem}[Daubechies (1988)]
+        For all $k>0$, there exists a compactly supported $C^k$ function $\psi$ such that the system of translations
+        and dilations
+        \begin{equation*}
+            \psi_{j,k}(t) := 2^{\frac{j}{2}}\psi(2^jt-k),\quad j,k\in \Itgr
+        \end{equation*}
+        forms an orthonormal basis of $L_2(\Rl).$
+    \end{theorem}
+\end{frame}
+
+
+
+\begin{frame}{Wavelet methods}
+    Wavelets are analogous to Fourier series, in the sense that if
+    \[
+        f(t) = \sum_{j\in \Itgr} \sum_{k\in \Itgr} c_{j,k}\psi_{j,k}(t)
+    \]
+    then the coefficients $c_{j,k}$ for $j>N$ represent oscillations of $f$ on the scale $\sim 2^{-N}.$ A function of the form
+    \[
+        f(t) = \sum_{j<N} \sum_{k\in \Itgr}c_{j,k}\psi_{j,k}(t)
+    \]
+    does not oscillate greatly on scales smaller than $2^{-N}.$ This is similar to functions with Fourier transform supported in $[-2^N,2^N].$
+\end{frame}
+
+\begin{frame}{An $\Lc_p$-Lipschitz Bernstein inequality}
+        \begin{theorem}[M.-Sukochev (2022)]
+        Let $f\in L_{\frac{p}{1-p}}(\Rl)$ have Wavelet expansion
+        \[
+            f(t) = \sum_{j\in \Itgr} \sum_{k\in \Itgr} c_{j,k}\psi_{j,k}(t)
+        \]
+        where $c_{j,k}=0$ for $k>N.$ Then
+        \[
+            \|f^{[1]}\|_{\mf_p} \leq C2^{\frac{N}{p}} \|f\|_{\frac{p}{1-p}}.
+        \]
+    \end{theorem}
+    With $p=1,$ this is the wavelet analogy of Peller's operator Bernstein inequality. For $p<1$ it is new.
+\end{frame}
+
+
+\begin{frame}{Wavelets and Besov spaces}
+    It follows from the Wavelet Bernstein inequality that Besov spaces have a very simple characterisation in terms of wavelet coefficients.
+    \begin{theorem}[Meyer (1986)]
+        Let $s \in \Rl$ and $p,q\in (0,\infty].$ Let $\psi$ be a compactly supported $C^k$ wavelet where $k > -s.$ Then a distribution $f\in \Dc'(\Rl)$
+        belongs to the homogeneous Besov space $\dot{B}^{s}_{p,q}(\Rl)$ if and only if
+        \begin{equation*}
+            \|f\|_{B^s_{p,q}}\approx \sum_{j\in \Itgr} 2^{jq(s+\frac{1}{2}-\frac{1}{p})}\left(\sum_{k\in \Itgr} |\langle f,\psi_{j,k}\rangle|^p\right)^{\frac{q}{p}} < \infty.
+        \end{equation*}
+    \end{theorem}
+\end{frame}
+
+
+
+\begin{frame}{A new result}
+    Using the $p$-triangle inequality and the $\Lc_p$-Lipschitz Bernstein inequality, we get the following:
+%     we easily conclude that $\|f\|_{\Lc_p-\mathrm{Lip}} \lesssim \|f\|_{B^{\frac1p}_{\frac{p}{1-p},p}(\Rl)}.$
+    \begin{theorem}[M. and Sukochev (2022)]
+        Let $0 < p < 1.$ Let $f \in \dot{B}^{\frac1p}_{\frac{p}{1-p},p}(\Rl)$ be Lipschitz continuous. Then $f$ is $\Lc_p$-Lipschitz and
+        $$
+            \|f(A)-f(B)\|_p \leq C_{p}(\|f'\|_\infty+\|f\|_{\dot{B}^{\frac1p}_{\frac{p}{1-p},p}(\Rl)})\|A-B\|_p,\quad A,B\in \Bc_{\sa}(H).
+        $$
+    \end{theorem}
+    \pause
+    In other words, we require that $f$ be Lipschitz and for some $n>\frac1p$ that
+    \begin{equation*}
+        \int_0^\infty \left(\int_{-\infty}^\infty \left|\sum_{k=0}^n \binom{n}{k}(-1)^{n-k}f(t+kh)\right|^{\frac{p}{1-p}}\,dt\right)^{1-p} \frac{dh}{h^2} < \infty.
+    \end{equation*}
+    \pause
+    For example, $f',\ldots f^{(k)} \in L_{\frac{p}{1-p}}(\Rl)$ where $k > \frac{1}{p}-1$ is sufficient.
+\end{frame}
+%
+% \begin{frame}{What else can we do?}
+%     Wavelets are not new, but their application to this theory is. \pause
+%     Some other things we can achieve:
+%     \begin{itemize}
+%         \item{} For all $n\geq 0$, the inequality
+%         $$
+%             \sum_{k=0}^n \mu(k,f(A)-f(B))^p \lesssim (\|f'\|_\infty+\|f\|_{\dot{B}^{\frac{1}{p}}_{\frac{p}{1-p},p}})\sum_{k=0}^n \mu(k,A-B)^p
+%         $$
+%         (this recovers the previous result with $n=\infty.$)\pause
+%         \item{} H\"older-type estimates of the form
+%         $$
+%             \|f(A)-f(B)\|_{p} \lesssim_f \||A-B|^{\alpha}\|_p
+%         $$
+%         for $f$ in some Besov space.
+%     \end{itemize}
+% \end{frame}
+% \begin{frame}{Wavelet Bernstein inequality}
+%     How do we use wavelet methods? The key is again a Bernstein inequality.
+%     \begin{theorem}[Meyer(?) (1980s)]
+%         Let $f\in L_{\infty}(\Rl)$ have Wavelet expansion
+%         \[
+%             f(t) = \sum_{j\in \Itgr} \sum_{k\in \Itgr} c_{j,k}\psi_{j,k}(t)
+%         \]
+%         where $c_{j,k}=0$ for $k>N.$ Then
+%         \[
+%             \|f\|_{\mathrm{Lip}} \leq C2^N \|f\|_{\infty}.
+%         \]
+%     \end{theorem}
+% \end{frame}
+
+
+
+
+\begin{frame}{Future directions}
+    If $A$ and $B$ are two bounded operators, then
+    \[
+        f(A+B) = f(A)+T^{A,A}_{f^{[1]}}(B)+T^{A,A,A}_{f^{[2]}}(B,B)+\cdots+T^{A,A,\cdots,A+B}_{f^{[k+1]}}(B,B,\cdots,B).
+    \]
+    Here $T^{A,\cdots,A}_{f^{[k]}}$ are \emph{multiple operator integrals}, essentially multilinear Schur multipliers.
+    \pause
+    If $B \in \Lc_p,$ we would like to understand when the Taylor remainder
+    \[
+        f(A+B)-f(A)-T^{A,A}_{f^{[1]}}(B)-\cdots -T^{A,A,\cdots,A}_{f^{[n]}}(B,\cdots,B)
+    \]
+    also belongs to $\Lc_p.$
+\end{frame}
+
+\begin{frame}{Bilinear Schur multipliers}
+    Let $m:\Rl^3\to \Cplx$ be a function of three variables. Given finitely supported matrices $X,Y\in \ell_{\infty}(\Rl^2),$ let
+    \[
+        m\circ (X,Y)(\lambda,\nu) = \sum_{\mu} m(\lambda,\mu,\nu)X(\lambda,\mu)Y(\mu,\nu).
+    \]
+    \begin{definition}[Bilinear Schur multipliers]
+        Given $0<p_1,p_2,p_3\leq \infty,$ let
+        \[
+            \|m\|_{\mf(\Lc_{p_1}\times \Lc_{p_2},\Lc_{p_3})} = \sup_{\|A\|_{p_1}\leq 1,\, \|B\|_{p_2}\leq 1} \|m\circ (X,Y)\|_{p_3}.
+        \]
+    \end{definition}
+    Similarly we can define $n$-linear Schur multipliers for $n>2.$
+\end{frame}
+
+\begin{frame}{Multilinear Schur multipliers}
+    \begin{theorem}[Potapov-Sukochev-Skripka, Le Merdy-Skripka]
+        If
+        \[
+            1<p<\infty.
+        \]
+        and $f^{(n)} \in C_b(\Rl),$ then
+        \[
+            \|f^{[n]}\|_{\mf(\Lc_{np}^n,\Lc_p)}\leq C\|f^{(n)}\|_{\infty}.
+        \]
+    \end{theorem}
+    \begin{theorem}[Peller]
+        If $1\leq p \leq \infty,$ then
+        \[
+            \|f^{[n]}\|_{\mf(\Lc_{np}^n,\Lc_p)}\leq C\|f\|_{B^n_{\infty,1}(\Rl)}
+        \]
+    \end{theorem}
+    Question: could this be extended to $0<p<1$?
+\end{frame}
+
+\begin{frame}{Multilinear Schur multipliers}
+    The best I have so far weakens $\Lc_{np}$ to $\Lc_p.$
+    \begin{theorem}
+        Let $0 < p \leq 1.$ If $f \in B^{\frac{n}{p}}_{\frac{p}{1-p},p}(\Rl)$ then
+        $f^{[n]} \in \mf(\Lc_p^n,\Lc_p).$
+    \end{theorem}
+    This implies that if $f \in B^{n/p}_{\frac{p}{1-p},p}(\Rl),$ $A\in \Bc_{\sa}(H)$ and $X = X^* \in \Lc_p,$ then the function
+    \[
+        t\mapsto f(A+tX)
+    \]
+    admits an $n$-term Taylor expansion with remainder term in $\Lc_p$ with quasi-norm of size $O(t^n).$
+\end{frame}
+
+
+
+\begin{frame}
+\structure{\begin{center}
+{\Huge{}Thank you for listening!}
+\par\end{center}}\end{frame}
+
+
+
+\end{document}
+
