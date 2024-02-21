@@ -312,7 +312,7 @@ M., Sukochev, Lipschitz estimates in quasi-Banach Schatten ideals.
 \begin{frame}{Geometry in $\Lc_p.$}
     The unit ball $B = \{T\;:\; \|T\|_p\leq 1\}$ in $\Lc_p$ is not convex.
 
-    I.e., if $\xi_1,\ldots,\xi_n\in B$ then it might happen that
+    i.e., if $\xi_1,\ldots,\xi_n\in B$ then it might happen that
     \[
         \theta_1\xi_1+\cdots+\theta_n\xi_n\notin B,\quad |\theta_1|+\cdots+|\theta_n|\leq 1.
     \]
@@ -354,7 +354,7 @@ M., Sukochev, Lipschitz estimates in quasi-Banach Schatten ideals.
 %         \item{} $\|m_1+m_2\|_{\mf_p}^p \leq \|m_1\|_{\mf_p}^p+\|m_2\|_{\mf_p}^p.$
 %         \item{} If $m_1$ is a principal submatrix of $m_2,$ then $\|m_1\|_{\mf_p} \leq \|m_2\|_{\mf_p}.$
 %     \end{itemize}
-    We could also consider the ``cb" version. This does not make much difference.
+%     We could also consider the ``cb" version. This does not make much difference.
 \end{frame}
 
 \begin{frame}{Schur multipliers and operator-Lipschitz functions}
@@ -510,9 +510,9 @@ M., Sukochev, Lipschitz estimates in quasi-Banach Schatten ideals.
         If $\sum_{j} |c_j|^{\frac{p}{1-p}}<\infty$ then \eqref{model_schur} is a Schur multiplier of $\Lc_p.$
     \end{lemma}
     \pause
-    Why is it $\frac{p}{1-p}$? This is because of the H\"older inequality
+    Why is it $\frac{p}{1-p}$? It comes down to the inequality
     \[
-        \left(\sum_{j} |a_jb_j|^p\right)^{\frac1p} \leq \left(\sum_{j} |a_j|^{\frac{p}{1-p}}\right)^{\frac{1-p}{p}}\left(\sum_{j} |b_j|\right)
+        (\sum_{j} |a_jb_j|^p)^{\frac1p} \leq (\sum_{j} |a_j|^{\frac{p}{1-p}})^{\frac{1-p}{p}}(\sum_{j} |b_j|)
     \]
 \end{frame}
 
@@ -528,9 +528,7 @@ M., Sukochev, Lipschitz estimates in quasi-Banach Schatten ideals.
             \|f^{[1]}\|_{\mf_p} \lesssim \|\{c_k\}_{k\in \Itgr}\|_{\ell_{\frac{p}{1-p}}}.
         \]
     \end{theorem}
-    What kind of functions can we build out of functions like this?\pause
-
-    In fact, basically all of them.
+    What kind of functions can we build out of functions like this?
 \end{frame}
 
 \begin{frame}{Wavelet methods}
@@ -634,71 +632,71 @@ M., Sukochev, Lipschitz estimates in quasi-Banach Schatten ideals.
 %         \]
 %     \end{theorem}
 % \end{frame}
-
-
-
-
-\begin{frame}{Future directions}
-    If $A$ and $B$ are two bounded operators, then
-    \[
-        f(A+B) = f(A)+T^{A,A}_{f^{[1]}}(B)+T^{A,A,A}_{f^{[2]}}(B,B)+\cdots+T^{A,A,\cdots,A+B}_{f^{[k+1]}}(B,B,\cdots,B).
-    \]
-    Here $T^{A,\cdots,A}_{f^{[k]}}$ are \emph{multiple operator integrals}, essentially multilinear Schur multipliers.
-    \pause
-    If $B \in \Lc_p,$ we would like to understand when the Taylor remainder
-    \[
-        f(A+B)-f(A)-T^{A,A}_{f^{[1]}}(B)-\cdots -T^{A,A,\cdots,A}_{f^{[n]}}(B,\cdots,B)
-    \]
-    also belongs to $\Lc_p.$
-\end{frame}
-
-\begin{frame}{Bilinear Schur multipliers}
-    Let $m:\Rl^3\to \Cplx$ be a function of three variables. Given finitely supported matrices $X,Y\in \ell_{\infty}(\Rl^2),$ let
-    \[
-        m\circ (X,Y)(\lambda,\nu) = \sum_{\mu} m(\lambda,\mu,\nu)X(\lambda,\mu)Y(\mu,\nu).
-    \]
-    \begin{definition}[Bilinear Schur multipliers]
-        Given $0<p_1,p_2,p_3\leq \infty,$ let
-        \[
-            \|m\|_{\mf(\Lc_{p_1}\times \Lc_{p_2},\Lc_{p_3})} = \sup_{\|A\|_{p_1}\leq 1,\, \|B\|_{p_2}\leq 1} \|m\circ (X,Y)\|_{p_3}.
-        \]
-    \end{definition}
-    Similarly we can define $n$-linear Schur multipliers for $n>2.$
-\end{frame}
-
-\begin{frame}{Multilinear Schur multipliers}
-    \begin{theorem}[Potapov-Sukochev-Skripka, Le Merdy-Skripka]
-        If
-        \[
-            1<p<\infty.
-        \]
-        and $f^{(n)} \in C_b(\Rl),$ then
-        \[
-            \|f^{[n]}\|_{\mf(\Lc_{np}^n,\Lc_p)}\leq C\|f^{(n)}\|_{\infty}.
-        \]
-    \end{theorem}
-    \begin{theorem}[Peller]
-        If $1\leq p \leq \infty,$ then
-        \[
-            \|f^{[n]}\|_{\mf(\Lc_{np}^n,\Lc_p)}\leq C\|f\|_{B^n_{\infty,1}(\Rl)}
-        \]
-    \end{theorem}
-    Question: could this be extended to $0<p<1$?
-\end{frame}
-
-\begin{frame}{Multilinear Schur multipliers}
-    The best I have so far weakens $\Lc_{np}$ to $\Lc_p.$
-    \begin{theorem}
-        Let $0 < p \leq 1.$ If $f \in B^{\frac{n}{p}}_{\frac{p}{1-p},p}(\Rl)$ then
-        $f^{[n]} \in \mf(\Lc_p^n,\Lc_p).$
-    \end{theorem}
-    This implies that if $f \in B^{n/p}_{\frac{p}{1-p},p}(\Rl),$ $A\in \Bc_{\sa}(H)$ and $X = X^* \in \Lc_p,$ then the function
-    \[
-        t\mapsto f(A+tX)
-    \]
-    admits an $n$-term Taylor expansion with remainder term in $\Lc_p$ with quasi-norm of size $O(t^n).$
-\end{frame}
-
+%
+%
+%
+%
+% \begin{frame}{Future directions}
+%     If $A$ and $B$ are two bounded operators, then
+%     \[
+%         f(A+B) = f(A)+T^{A,A}_{f^{[1]}}(B)+T^{A,A,A}_{f^{[2]}}(B,B)+\cdots+T^{A,A,\cdots,A+B}_{f^{[k+1]}}(B,B,\cdots,B).
+%     \]
+%     Here $T^{A,\cdots,A}_{f^{[k]}}$ are \emph{multiple operator integrals}, essentially multilinear Schur multipliers.
+%     \pause
+%     If $B \in \Lc_p,$ we would like to understand when the Taylor remainder
+%     \[
+%         f(A+B)-f(A)-T^{A,A}_{f^{[1]}}(B)-\cdots -T^{A,A,\cdots,A}_{f^{[n]}}(B,\cdots,B)
+%     \]
+%     also belongs to $\Lc_p.$
+% \end{frame}
+%
+% \begin{frame}{Bilinear Schur multipliers}
+%     Let $m:\Rl^3\to \Cplx$ be a function of three variables. Given finitely supported matrices $X,Y\in \ell_{\infty}(\Rl^2),$ let
+%     \[
+%         m\circ (X,Y)(\lambda,\nu) = \sum_{\mu} m(\lambda,\mu,\nu)X(\lambda,\mu)Y(\mu,\nu).
+%     \]
+%     \begin{definition}[Bilinear Schur multipliers]
+%         Given $0<p_1,p_2,p_3\leq \infty,$ let
+%         \[
+%             \|m\|_{\mf(\Lc_{p_1}\times \Lc_{p_2},\Lc_{p_3})} = \sup_{\|A\|_{p_1}\leq 1,\, \|B\|_{p_2}\leq 1} \|m\circ (X,Y)\|_{p_3}.
+%         \]
+%     \end{definition}
+%     Similarly we can define $n$-linear Schur multipliers for $n>2.$
+% \end{frame}
+%
+% \begin{frame}{Multilinear Schur multipliers}
+%     \begin{theorem}[Potapov-Sukochev-Skripka, Le Merdy-Skripka]
+%         If
+%         \[
+%             1<p<\infty.
+%         \]
+%         and $f^{(n)} \in C_b(\Rl),$ then
+%         \[
+%             \|f^{[n]}\|_{\mf(\Lc_{np}^n,\Lc_p)}\leq C\|f^{(n)}\|_{\infty}.
+%         \]
+%     \end{theorem}
+%     \begin{theorem}[Peller]
+%         If $1\leq p \leq \infty,$ then
+%         \[
+%             \|f^{[n]}\|_{\mf(\Lc_{np}^n,\Lc_p)}\leq C\|f\|_{B^n_{\infty,1}(\Rl)}
+%         \]
+%     \end{theorem}
+%     Question: could this be extended to $0<p<1$?
+% \end{frame}
+%
+% \begin{frame}{Multilinear Schur multipliers}
+%     The best I have so far weakens $\Lc_{np}$ to $\Lc_p.$
+%     \begin{theorem}
+%         Let $0 < p \leq 1.$ If $f \in B^{\frac{n}{p}}_{\frac{p}{1-p},p}(\Rl)$ then
+%         $f^{[n]} \in \mf(\Lc_p^n,\Lc_p).$
+%     \end{theorem}
+%     This implies that if $f \in B^{n/p}_{\frac{p}{1-p},p}(\Rl),$ $A\in \Bc_{\sa}(H)$ and $X = X^* \in \Lc_p,$ then the function
+%     \[
+%         t\mapsto f(A+tX)
+%     \]
+%     admits an $n$-term Taylor expansion with remainder term in $\Lc_p$ with quasi-norm of size $O(t^n).$
+% \end{frame}
+%
 
 
 \begin{frame}
